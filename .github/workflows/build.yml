@@ -9,11 +9,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - uses: actions/checkout@v4
-        with:
-          repository: darknao/zmk
-          ref: rgb-layer-24.12
-          path: src
       - uses: cachix/install-nix-action@v25
         with:
           nix_path: nixpkgs=channel:nixos-22.05
@@ -21,8 +16,16 @@ jobs:
         with:
           name: moergo-glove80-zmk-dev
           skipPush: true
+      - name: Checkout darknao's ZMK
+        uses: actions/checkout@v4
+        with:
+          repository: darknao/zmk
+          ref: darknao/rgb-layer-24.12
+          path: zmk
       - name: Build Glove80 combined firmware
-        run: nix-build config -o combined
+        run: |
+          export ZMK_PATH=$PWD/zmk
+          nix-build config -o combined --arg zmkSource "builtins.fetchGit { url = \"file://$ZMK_PATH\"; ref = \"HEAD\"; }"
       - name: Copy result out of nix store
         run: cp combined/glove80.uf2 glove80.uf2
       - name: Upload result
