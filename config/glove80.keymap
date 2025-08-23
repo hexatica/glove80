@@ -5,13 +5,13 @@
  */
 
 #include <input/processors.dtsi>
+#include <dt-bindings/zmk/rgb_colors.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/rgb_colors.h>
 
 #define HYPER LC(LS(LG(LALT)))
 
@@ -31,9 +31,10 @@
 };
 
 /* Custom Device-tree */
+
 / {
     underglow-layer {
-        compatible  = "zmk,underglow-layer";
+        compatible = "zmk,underglow-layer";
 
         base {
             bindings = <
@@ -43,7 +44,8 @@
     &ug ___ &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL                                                  &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug ___
     &ug ___ &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___ &ug_cl ___ TEAL &ug_cl ___ TEAL &ug ___         &ug ___         &ug ___         &ug ___
     &ug ___ &ug ___         &ug ___         &ug ___         &ug ___                         &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___                 &ug ___         &ug ___         &ug ___         &ug ___         &ug ___
-                >;
+            >;
+
             layer-id = <DEFAULT>;
         };
 
@@ -55,13 +57,12 @@
     &ug PURPLE &ug ___  &ug ORANGE &ug    RED &ug ORANGE &ug ___                                                              &ug ___ &ug_nl RED YELLOW   &ug_nl RED YELLOW &ug_nl RED YELLOW &ug ORANGE  &ug ___
     &ug   BLUE &ug ___  &ug RED    &ug    RED &ug    RED &ug ___  &ug_cl BLUE TEAL &ug ___   &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug_nl RED YELLOW   &ug_nl RED YELLOW &ug_nl RED YELLOW &ug    RED  &ug BLUE
     &ug ___    &ug ___  &ug ORANGE &ug ORANGE &ug ORANGE          &ug ___          &ug GREEN &ug ___  &ug ___ &ug ___ &ug ___         &ug_nl RED YELLOW   &ug_nl RED YELLOW &ug ORANGE        &ug    RED  &ug ___
-                >;
+            >;
+
             layer-id = <LOWER>;
         };
     };
 };
-
-
 
 / {
     behaviors {
@@ -162,7 +163,7 @@
 &none        &kp LS(LA(LC(LG(NUMBER_1))))  &kp LS(LA(LC(LG(NUMBER_2))))  &kp LS(LA(LC(LG(NUMBER_3))))  &kp LS(LA(LC(LG(NUMBER_4))))  &none                                                                                 &none                  &none                  &none                      &none                       &none                          &none
 &none        &rgb_ug RGB_SPI               &rgb_ug RGB_SAI               &rgb_ug RGB_HUI               &rgb_ug RGB_BRI               &rgb_ug RGB_TOG                                                                       &none                  &none                  &none                      &none                       &none                          &none
 &bootloader  &rgb_ug RGB_SPD               &rgb_ug RGB_SAD               &rgb_ug RGB_HUD               &rgb_ug RGB_BRD               &rgb_ug RGB_EFF                                                                       &kp LG(LA(LC(LS(H))))  &kp LS(LA(LC(LG(J))))  &kp LS(LA(LC(LG(K))))      &kp LS(LC(LA(LG(L))))       &kp LS(LA(LC(LG(SEMICOLON))))  &kp LS(LA(LC(LG(SQT))))
-&sys_reset   &none                         &none                         &none                         &none                         &none            &bt_2  &bt_3  &none         &none      &kp LG(LS(Z))  &kp LG(Z)      &kp LS(LA(LC(LG(N))))  &kp LS(LA(LC(LG(M))))  &kp LS(LA(LC(LG(COMMA))))  &kp LS(LA(LC(LG(PERIOD))))  &none                          &sys_reset
+&sys_reset   &none                         &none                         &none                         &none                         &none            &bt_2  &bt_3  &none         &none      &kp LG(LS(Z))  &kp LG(Z)      &kp LS(LA(LC(LG(N))))  &kp LS(LA(LC(LG(M))))  &kp LS(LA(LC(LG(COMMA))))  &kp LS(LA(LC(LG(PERIOD))))  &kp LS(LA(LC(LG(SLASH))))      &sys_reset
 &none        &none                         &none                         &none                         &none                                          &bt_0  &bt_1  &out OUT_USB  &kp LG(C)  &kp LG(V)      &kp LA(LG(V))                         &none                  &none                      &none                       &none                          &to 3
             >;
         };
