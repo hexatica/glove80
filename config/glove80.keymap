@@ -38,12 +38,12 @@
 
         base {
             bindings = <
-    &ug ___ &ug ___         &ug ___         &ug ___         &ug ___                                                                                          &ug ___         &ug ___         &ug ___         &ug ___         &ug ___
-    &ug ___ &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL                                                  &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug ___
-    &ug ___ &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL                                                  &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug ___         &ug ___
-    &ug ___ &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL                                                  &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug ___
-    &ug ___ &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug_cl ___ TEAL &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___ &ug_cl ___ TEAL &ug_cl ___ TEAL &ug ___         &ug ___         &ug ___         &ug ___
-    &ug ___ &ug ___         &ug ___         &ug ___         &ug ___                         &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___                 &ug ___         &ug ___         &ug ___         &ug ___         &ug ___
+    &ug GREEN &ug GREEN &ug BLUE &ug RED &ug ORANGE                                                                              &ug ORANGE &ug RED &ug BLUE &ug GREEN &ug GREEN
+    &ug GREEN &ug GREEN &ug BLUE &ug RED &ug ORANGE &ug ORANGE                                                        &ug ORANGE &ug ORANGE &ug RED &ug BLUE &ug GREEN &ug GREEN
+    &ug GREEN &ug GREEN &ug BLUE &ug RED &ug ORANGE &ug ORANGE                                                        &ug ORANGE &ug ORANGE &ug RED &ug BLUE &ug GREEN &ug GREEN
+    &ug GREEN &ug GREEN &ug BLUE &ug RED &ug ORANGE &ug ORANGE                                                        &ug ORANGE &ug ORANGE &ug RED &ug BLUE &ug GREEN &ug GREEN
+    &ug GREEN &ug GREEN &ug BLUE &ug RED &ug ORANGE &ug ORANGE &ug PINK &ug PINK &ug PINK  &ug PINK &ug PINK &ug PINK &ug ORANGE &ug ORANGE &ug RED &ug BLUE &ug GREEN &ug GREEN
+    &ug GREEN &ug GREEN &ug BLUE &ug RED &ug ORANGE            &ug PINK &ug PINK &ug PINK  &ug PINK &ug PINK &ug PINK            &ug ORANGE &ug RED &ug BLUE &ug GREEN &ug GREEN
             >;
 
             layer-id = <DEFAULT>;
