@@ -1,0 +1,23 @@
+# West manifest for Glove80 ZMK configuration with home row mods support
+---
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: urob
+      url-base: https://github.com/urob
+
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
+    
+    # ZMK helpers module for simplified home row mod syntax
+    - name: zmk-helpers
+      remote: urob
+      revision: main
+      path: modules/zmk/helpers
+
+  self:
+    path: config
