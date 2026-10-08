@@ -63,11 +63,16 @@
 #define LAYER_Factory 3
 
 /* To deal with the situation where there is no Lower layer, to keep &lower happy */
-#ifndef LAYER_Lower
-#define LAYER_Lower 0
-#endif
 
-/ {
+#ifndef LAYER_Lower
+
+#define LAYER_Lower 0
+
+#
+
+endif {
+    /
+
     /* Custom Device-tree */
     /* Input Listeners */
     /* System behavior and Macros */
@@ -334,7 +339,7 @@
         secondP: secondP {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp N2 &kp LS(G) &kp N5 &kp Y &kp CARET &kp LS(N) &kp LS(Y) &kp LS(X) &kp AMPS &kp L &kp J &kp X &kp O &kp LS(E) &kp PRCNT &kp J>;
+            bindings = <&none &kp N2 &kp LS(G) &kp N5 &kp Y &kp LS(APOS) &kp LS(N) &kp LS(Y) &kp LS(X) &kp LS(N6) &kp L &kp J &kp X &kp O &kp LS(E) &kp LS(N5) &kp J>;
             label = "SECONDP";
         };
     };
