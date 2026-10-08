@@ -49,6 +49,11 @@ content hash. `config/keypeek.conf`, the `raw_hid_adapter` shield, and the
 `studio-rpc-usb-uart` snippet apply only to the left half. The Studio app is
 optional; KeyPeek uses the Studio protocol directly.
 
+Nanopb's Studio generators are copied and their Python interpreter paths are
+patched by `config/nanopb.nix`, so they run inside the GitHub Actions Nix sandbox
+without a host `/usr/bin/env`. CI checks both Python protobuf generation and
+the Nanopb C generator with `checks/nanopb.nix` before building the firmware.
+
 With Docker running, build locally from this directory:
 
 ```sh

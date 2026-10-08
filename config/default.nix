@@ -15,14 +15,24 @@ let
     sha256 = "05jk7cgnjaraq1g3cizcb9nvkbs8lb2x261b2ma9hs4153l8fg5c";
   };
 
-  glove80_left = firmware.zmk.override {
+  nanopb = firmware.callPackage ./nanopb.nix {
+    module = firmware.zephyr.modules.nanopb;
+  };
+
+  glove80_left = (firmware.zmk.override {
     board = "glove80_lh";
     keymap = "${config}/glove80-keypeek.keymap";
     kconfig = "${config}/glove80.conf;${config}/keypeek.conf";
     extraModules = [ rawHid keypeek ];
     shield = "raw_hid_adapter";
     snippets = [ "studio-rpc-usb-uart" ];
-  };
+  }).overrideAttrs (old: {
+    cmakeFlags = map (flag: builtins.replaceStrings
+      [ firmware.zephyr.modules.nanopb.modulePath ]
+      [ nanopb.modulePath ]
+      flag
+    ) old.cmakeFlags;
+  });
   glove80_right = firmware.zmk.override { board = "glove80_rh"; keymap = "${config}/glove80.keymap"; kconfig = "${config}/glove80.conf"; };
 
 in (firmware.combine_uf2 glove80_left glove80_right).overrideAttrs (old: {

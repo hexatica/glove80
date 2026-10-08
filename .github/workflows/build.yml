@@ -21,6 +21,8 @@ jobs:
         with:
           name: moergo-glove80-zmk-dev
           skipPush: true
+      - name: Check Nanopb generators for Studio
+        run: nix-build checks/nanopb.nix --no-out-link
       - name: Build Glove80 combined firmware
         run: nix-build config -o combined
       - name: Copy result out of nix store
