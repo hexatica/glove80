@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: moergo-sc/zmk
-          ref: main
+          ref: ce69e85f585c724142aae37ddf8a7e019ff19e93 # MoErgo v26.09
           path: src
       - uses: cachix/install-nix-action@v25
         with:

@@ -4,9 +4,9 @@ setlocal enabledelayedexpansion
 
 set IMAGE=glove80-zmk-config-docker
 
-:: Set branch name from first parameter, default to main if not provided
+:: Default to the pinned MoErgo v26.09 firmware.
 if "%~1"=="" (
-	set BRANCH=main
+	set BRANCH=ce69e85f585c724142aae37ddf8a7e019ff19e93
 ) else (
 	set BRANCH=%~1
 )

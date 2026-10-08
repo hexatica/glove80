@@ -1,0 +1,3 @@
+/* Studio's unlock binding belongs only to the central half. */
+#define KEYPEEK_UNLOCK &studio_unlock
+#include "glove80.keymap"
