@@ -91,18 +91,28 @@ The third layer (ZMK index 2) is named **Mouse**. Tap the existing right thumb
 layer key to toggle it on, then tap the same key again to toggle it off. Press
 Escape while Mouse is active to return to the base layer immediately.
 
+Tap **8** on the number row to toggle between the current pointer speed and
+**2× speed**. KeyPeek reports **Mouse Fast** while the faster mode is active.
+Click and scroll speed stay unchanged. Exiting Mouse using the right thumb
+layer key, Escape, or the left thumb return-to-Base key clears the faster mode,
+so entering Mouse again starts at normal speed.
+
 | Base-layer key position | Action on Mouse layer |
 | --- | --- |
 | I / J / K / L | Move pointer up / left / down / right |
-| E / S / D / F | Scroll down / left / up / right (vertical directions inverted) |
-| U | Hold left mouse button (release to let go) |
-| O | Hold right mouse button |
-| 8 (number row) | Hold middle mouse button |
+| S / D / F | Hold left / middle / right mouse button (release to let go) |
+| U / O | Scroll down / up |
+| 8 (number row) | Toggle normal / 2× pointer speed |
+| Left thumb top row | Command / Option / Control |
+| Left thumb bottom row | Backspace / Delete / return to Base |
 | Right thumb layer key | Toggle Mouse off |
 | Escape | Return to Base |
 
 Hold movement or scrolling keys for continuous output. Other positions pass
 through to the underlying layer, including modifiers for modified clicks.
+Horizontal scrolling has no bindings. The left thumb cluster matches Lower.
+The transparent Mouse Fast layer (index 4) enables a built-in XY scaler on the
+pointer listener only, retaining the same Mouse controls and normal acceleration.
 `CONFIG_ZMK_POINTING=y` enables ZMK's built-in mouse support; no extra module is
 needed. Build and flash both halves as above, then reconnect the left USB cable
 to refresh its mouse interface. For Bluetooth, forget/re-pair the keyboard if

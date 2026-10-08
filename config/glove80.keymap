@@ -17,6 +17,7 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <input/processors/scaler.dtsi>
 
 /* Hold Magic and press F2 to unlock Studio/KeyPeek on the central half. */
 #ifndef KEYPEEK_UNLOCK
@@ -67,6 +68,15 @@
 #define LAYER_Lower 1
 #define LAYER_Mouse 2
 #define LAYER_Magic 3
+#define LAYER_Mouse_Fast 4
+
+/* Double pointer events only; mouse buttons and scrolling use other listeners. */
+&mmv_input_listener {
+    fast {
+        layers = <LAYER_Mouse_Fast>;
+        input-processors = <&zip_xy_scaler 2 1>;
+    };
+};
 
 /* To deal with the situation where there is no Lower layer, to keep &lower happy */
 #ifndef LAYER_Lower
@@ -382,16 +392,16 @@
             >;
         };
 
-        /* Third layer: IJKL pointer, inverted ESDF scrolling, U/O/8 clicks. */
+        /* Third layer: IJKL pointer, S/D/F clicks, U/O scrolling, 8 speed toggle. */
         layer_Mouse {
             display-name = "Mouse";
             bindings = <
 &trans  &trans          &trans          &trans           &trans                                                                            &trans          &trans          &trans           &trans  &trans
-&trans  &trans          &trans          &trans           &trans  &trans                                                        &trans  &trans  &mkp MCLK       &trans           &trans  &trans
-&to LAYER_Base  &trans  &trans          &msc SCRL_DOWN   &trans  &trans                                                        &trans  &mkp LCLK  &mmv MOVE_UP  &mkp RCLK       &trans  &trans
-&trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &msc SCRL_RIGHT  &trans                                                &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
-&trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &tog LAYER_Mouse  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans          &trans          &trans           &trans         &trans  &trans  &trans  &trans  &trans  &trans                   &trans  &trans  &trans  &trans  &trans
+&trans  &trans          &trans          &trans           &trans  &trans                                                        &trans  &trans  &tog LAYER_Mouse_Fast  &trans  &trans  &trans
+&to LAYER_Base  &trans  &trans          &trans           &trans  &trans                                                        &trans  &msc SCRL_DOWN  &mmv MOVE_UP  &msc SCRL_UP  &trans  &trans
+&trans  &trans          &mkp LCLK       &mkp MCLK        &mkp RCLK  &trans                                                      &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
+&trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &to LAYER_Base  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans          &trans          &trans           &trans         &kp BSPC  &kp DEL  &to LAYER_Base  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -403,6 +413,19 @@
 &bootloader  &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                   &none  &none  &none  &none  &none  &bootloader
 &sys_reset   &none            &none            &none            &none            &none            &bt_2  &bt_3  &none         &none  &none  &none  &none  &none  &none  &none  &none  &sys_reset
 &none        &none            &none            &none            &none                             &bt_0  &bt_1  &out OUT_USB  &none  &none  &none         &none  &none  &none  &none  &to 0
+            >;
+        };
+
+        /* Speed flag: inherit every Mouse binding, including the 8 toggle. */
+        layer_Mouse_Fast {
+            display-name = "Mouse Fast";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
