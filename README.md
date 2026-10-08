@@ -91,10 +91,12 @@ The third layer (ZMK index 2) is named **Mouse**. Tap the existing right thumb
 layer key to toggle it on, then tap the same key again to toggle it off. Press
 Escape while Mouse is active to return to the base layer immediately.
 
-Tap **E** to toggle between the current pointer speed and
-**2× speed**. KeyPeek reports **Mouse Fast** while the faster mode is active.
+Tap **E** for **2× pointer speed** or **R** for **3× pointer speed**. Press the
+active speed's key again to return to normal; pressing the other key switches
+directly to that speed. KeyPeek reports **Mouse Fast** for 2× and **Mouse Faster**
+for 3×.
 Click and scroll speed stay unchanged. Exiting Mouse using the right thumb
-layer key, Escape, or the left thumb return-to-Base key clears the faster mode,
+layer key, Escape, or the left thumb return-to-Base key clears both speed modes,
 so entering Mouse again starts at normal speed.
 
 | Base-layer key position | Action on Mouse layer |
@@ -103,6 +105,7 @@ so entering Mouse again starts at normal speed.
 | S / D / F | Hold left / middle / right mouse button (release to let go) |
 | U / O | Scroll down / up |
 | E | Toggle normal / 2× pointer speed |
+| R | Toggle normal / 3× pointer speed |
 | Left thumb top row | Command / Option / Control |
 | Left thumb bottom row | Backspace / Delete / return to Base |
 | Right thumb layer key | Toggle Mouse off |
@@ -111,8 +114,9 @@ so entering Mouse again starts at normal speed.
 Hold movement or scrolling keys for continuous output. Other positions pass
 through to the underlying layer, including modifiers for modified clicks.
 Horizontal scrolling has no bindings. The left thumb cluster matches Lower.
-The transparent Mouse Fast layer (index 4) enables a built-in XY scaler on the
+Mouse Fast (index 4) and Mouse Faster (index 5) enable built-in XY scaling on the
 pointer listener only, retaining the same Mouse controls and normal acceleration.
+Their E/R bindings switch between the two modes without combining multipliers.
 `CONFIG_ZMK_POINTING=y` enables ZMK's built-in mouse support; no extra module is
 needed. Build and flash both halves as above, then reconnect the left USB cable
 to refresh its mouse interface. For Bluetooth, forget/re-pair the keyboard if

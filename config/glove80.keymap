@@ -69,12 +69,38 @@
 #define LAYER_Mouse 2
 #define LAYER_Magic 3
 #define LAYER_Mouse_Fast 4
+#define LAYER_Mouse_Faster 5
 
-/* Double pointer events only; mouse buttons and scrolling use other listeners. */
+/* Scale pointer events only; mouse buttons and scrolling use other listeners. */
 &mmv_input_listener {
+    faster {
+        layers = <LAYER_Mouse_Faster>;
+        input-processors = <&zip_xy_scaler 3 1>;
+    };
     fast {
         layers = <LAYER_Mouse_Fast>;
         input-processors = <&zip_xy_scaler 2 1>;
+    };
+};
+
+/* Switch between speed modes without leaving both speed flags enabled. */
+/ {
+    macros {
+        mouse_speed_2x: mouse_speed_2x {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_tap &tog LAYER_Mouse_Faster &tog LAYER_Mouse_Fast>;
+        };
+
+        mouse_speed_3x: mouse_speed_3x {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_tap &tog LAYER_Mouse_Fast &tog LAYER_Mouse_Faster>;
+        };
     };
 };
 
@@ -392,13 +418,13 @@
             >;
         };
 
-        /* Third layer: IJKL pointer, S/D/F clicks, U/O scrolling, E speed toggle. */
+        /* Third layer: IJKL pointer, S/D/F clicks, U/O scrolling, E/R speed toggles. */
         layer_Mouse {
             display-name = "Mouse";
             bindings = <
 &trans  &trans          &trans          &trans           &trans                                                                            &trans          &trans          &trans           &trans  &trans
 &trans  &trans          &trans          &trans           &trans  &trans                                                        &trans  &trans  &trans          &trans  &trans  &trans
-&to LAYER_Base  &trans  &trans          &tog LAYER_Mouse_Fast  &trans  &trans                                                   &trans  &msc SCRL_DOWN  &mmv MOVE_UP  &msc SCRL_UP  &trans  &trans
+&to LAYER_Base  &trans  &trans          &tog LAYER_Mouse_Fast  &tog LAYER_Mouse_Faster  &trans                                    &trans  &msc SCRL_DOWN  &mmv MOVE_UP  &msc SCRL_UP  &trans  &trans
 &trans  &trans          &mkp LCLK       &mkp MCLK        &mkp RCLK  &trans                                                      &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
 &trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &to LAYER_Base  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans          &trans          &trans           &trans         &kp BSPC  &kp DEL  &to LAYER_Base  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans
@@ -416,13 +442,26 @@
             >;
         };
 
-        /* Speed flag: inherit every Mouse binding, including the E toggle. */
+        /* 2x speed flag: reuse Mouse bindings; R switches directly to 3x. */
         layer_Mouse_Fast {
             display-name = "Mouse Fast";
             bindings = <
 &trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &mouse_speed_3x  &trans                                 &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        /* 3x speed flag: reuse Mouse bindings; E switches directly to 2x. */
+        layer_Mouse_Faster {
+            display-name = "Mouse Faster";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                                                          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &mouse_speed_2x  &trans  &trans                                 &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                                          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
