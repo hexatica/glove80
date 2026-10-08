@@ -392,13 +392,13 @@
             >;
         };
 
-        /* Third layer: IJKL pointer, S/D/F clicks, U/O scrolling, 8 speed toggle. */
+        /* Third layer: IJKL pointer, S/D/F clicks, U/O scrolling, E speed toggle. */
         layer_Mouse {
             display-name = "Mouse";
             bindings = <
 &trans  &trans          &trans          &trans           &trans                                                                            &trans          &trans          &trans           &trans  &trans
-&trans  &trans          &trans          &trans           &trans  &trans                                                        &trans  &trans  &tog LAYER_Mouse_Fast  &trans  &trans  &trans
-&to LAYER_Base  &trans  &trans          &trans           &trans  &trans                                                        &trans  &msc SCRL_DOWN  &mmv MOVE_UP  &msc SCRL_UP  &trans  &trans
+&trans  &trans          &trans          &trans           &trans  &trans                                                        &trans  &trans  &trans          &trans  &trans  &trans
+&to LAYER_Base  &trans  &trans          &tog LAYER_Mouse_Fast  &trans  &trans                                                   &trans  &msc SCRL_DOWN  &mmv MOVE_UP  &msc SCRL_UP  &trans  &trans
 &trans  &trans          &mkp LCLK       &mkp MCLK        &mkp RCLK  &trans                                                      &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
 &trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &to LAYER_Base  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans          &trans          &trans           &trans         &kp BSPC  &kp DEL  &to LAYER_Base  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans
@@ -416,7 +416,7 @@
             >;
         };
 
-        /* Speed flag: inherit every Mouse binding, including the 8 toggle. */
+        /* Speed flag: inherit every Mouse binding, including the E toggle. */
         layer_Mouse_Fast {
             display-name = "Mouse Fast";
             bindings = <

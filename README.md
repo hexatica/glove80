@@ -91,7 +91,7 @@ The third layer (ZMK index 2) is named **Mouse**. Tap the existing right thumb
 layer key to toggle it on, then tap the same key again to toggle it off. Press
 Escape while Mouse is active to return to the base layer immediately.
 
-Tap **8** on the number row to toggle between the current pointer speed and
+Tap **E** to toggle between the current pointer speed and
 **2× speed**. KeyPeek reports **Mouse Fast** while the faster mode is active.
 Click and scroll speed stay unchanged. Exiting Mouse using the right thumb
 layer key, Escape, or the left thumb return-to-Base key clears the faster mode,
@@ -102,7 +102,7 @@ so entering Mouse again starts at normal speed.
 | I / J / K / L | Move pointer up / left / down / right |
 | S / D / F | Hold left / middle / right mouse button (release to let go) |
 | U / O | Scroll down / up |
-| 8 (number row) | Toggle normal / 2× pointer speed |
+| E | Toggle normal / 2× pointer speed |
 | Left thumb top row | Command / Option / Control |
 | Left thumb bottom row | Backspace / Delete / return to Base |
 | Right thumb layer key | Toggle Mouse off |
