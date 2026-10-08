@@ -70,6 +70,7 @@ are ignored by Git. `build.bat` provides the equivalent Windows build.
 1. Keep the working firmware in `backups/glove80-before-keypeek-2026-10-08.uf2`.
 2. Flash the newly built `glove80.uf2` to the right half, then the left half,
    following [MoErgo's flashing instructions](https://docs.moergo.com/glove80-user-guide/customizing-key-layout/).
+   Switch both halves off and back on after flashing.
 3. Connect the left half to the computer using a USB data cable and select USB
    output. In this keymap, hold Lower, then hold left Shift to access Magic,
    and tap the left thumb Magic key (`&out OUT_USB` on the Magic layer).
@@ -92,11 +93,11 @@ Escape while Mouse is active to return to the base layer immediately.
 
 | Base-layer key position | Action on Mouse layer |
 | --- | --- |
-| U / H / J / K | Move pointer up / left / down / right |
-| W / A / S / D | Scroll up / left / down / right |
-| Right thumb Delete | Hold left mouse button (release to let go) |
-| Right thumb GUI | Hold right mouse button |
-| Right thumb Alt | Hold middle mouse button |
+| I / J / K / L | Move pointer up / left / down / right |
+| E / S / D / F | Scroll down / left / up / right (vertical directions inverted) |
+| U | Hold left mouse button (release to let go) |
+| O | Hold right mouse button |
+| 8 (number row) | Hold middle mouse button |
 | Right thumb layer key | Toggle Mouse off |
 | Escape | Return to Base |
 

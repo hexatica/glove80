@@ -382,16 +382,16 @@
             >;
         };
 
-        /* Third layer: right-hand pointer, left-hand scrolling, thumb clicks. */
+        /* Third layer: IJKL pointer, inverted ESDF scrolling, U/O/8 clicks. */
         layer_Mouse {
             display-name = "Mouse";
             bindings = <
 &trans  &trans          &trans          &trans           &trans                                                                            &trans          &trans          &trans           &trans  &trans
-&trans  &trans          &trans          &trans           &trans  &trans                                                        &trans  &trans  &trans          &trans          &trans           &trans
-&to LAYER_Base  &trans  &msc SCRL_UP    &trans           &trans  &trans                                                        &trans  &mmv MOVE_UP  &trans     &trans          &trans           &trans
-&trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans  &trans                                                        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans  &trans
-&trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &tog LAYER_Mouse  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans          &trans          &trans           &trans         &trans  &trans  &trans  &mkp MCLK  &trans     &trans                   &trans  &trans  &trans  &trans  &trans
+&trans  &trans          &trans          &trans           &trans  &trans                                                        &trans  &trans  &mkp MCLK       &trans           &trans  &trans
+&to LAYER_Base  &trans  &trans          &msc SCRL_DOWN   &trans  &trans                                                        &trans  &mkp LCLK  &mmv MOVE_UP  &mkp RCLK       &trans  &trans
+&trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &msc SCRL_RIGHT  &trans                                                &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
+&trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &tog LAYER_Mouse  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans          &trans          &trans           &trans         &trans  &trans  &trans  &trans  &trans  &trans                   &trans  &trans  &trans  &trans  &trans
             >;
         };
 
