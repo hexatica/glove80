@@ -106,6 +106,8 @@ so entering Mouse again starts at normal speed.
 | U / O | Scroll down / up |
 | E | Toggle normal / 2× pointer speed |
 | R | Toggle normal / 3× pointer speed |
+| T | Forward (mouse button 5) |
+| G | Back (mouse button 4) |
 | Left thumb top row | Command / Option / Control |
 | Left thumb bottom row | Backspace / Delete / return to Base |
 | Right thumb layer key | Toggle Mouse off |
@@ -114,6 +116,7 @@ so entering Mouse again starts at normal speed.
 Hold movement or scrolling keys for continuous output. Other positions pass
 through to the underlying layer, including modifiers for modified clicks.
 Horizontal scrolling has no bindings. The left thumb cluster matches Lower.
+T/G send mouse button 5/4 events; navigation depends on the app's support.
 Mouse Fast (index 4) and Mouse Faster (index 5) enable built-in XY scaling on the
 pointer listener only, retaining the same Mouse controls and normal acceleration.
 Their E/R bindings switch between the two modes without combining multipliers.

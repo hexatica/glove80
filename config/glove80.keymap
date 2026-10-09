@@ -418,14 +418,14 @@
             >;
         };
 
-        /* Third layer: IJKL pointer, S/D/F clicks, U/O scrolling, E/R speed toggles. */
+        /* Third layer: IJKL pointer, S/D/F clicks, U/O scrolling, E/R speed, T/G forward/back. */
         layer_Mouse {
             display-name = "Mouse";
             bindings = <
 &trans  &trans          &trans          &trans           &trans                                                                            &trans          &trans          &trans           &trans  &trans
 &trans  &trans          &trans          &trans           &trans  &trans                                                        &trans  &trans  &trans          &trans  &trans  &trans
-&to LAYER_Base  &trans  &trans          &tog LAYER_Mouse_Fast  &tog LAYER_Mouse_Faster  &trans                                    &trans  &msc SCRL_DOWN  &mmv MOVE_UP  &msc SCRL_UP  &trans  &trans
-&trans  &trans          &mkp LCLK       &mkp MCLK        &mkp RCLK  &trans                                                      &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
+&to LAYER_Base  &trans  &trans          &tog LAYER_Mouse_Fast  &tog LAYER_Mouse_Faster  &mkp MB5                                  &trans  &msc SCRL_DOWN  &mmv MOVE_UP  &msc SCRL_UP  &trans  &trans
+&trans  &trans          &mkp LCLK       &mkp MCLK        &mkp RCLK  &mkp MB4                                                    &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
 &trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &to LAYER_Base  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans          &trans          &trans           &trans         &kp BSPC  &kp DEL  &to LAYER_Base  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans
             >;
