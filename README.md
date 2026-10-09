@@ -89,20 +89,23 @@ keymap changes.
 
 The third layer (ZMK index 2) is named **Mouse**. Hold the existing right thumb
 layer key to activate it; release the key to return to Base and clear all speed
-modes. Each new hold starts at normal pointer speed. Escape and the left thumb
-return-to-Base key can also exit Mouse immediately.
+modes. Double-tap that key within **200 ms** to lock Mouse on after releasing it.
+While locked, tap the right thumb key once to return to Base and reset speed.
+Each activation starts at normal pointer speed. Escape and the left thumb
+return-to-Base key also exit Mouse immediately.
 
-While holding Mouse, tap **W** for **0.5× pointer speed**, **E** for **2×**, or
+While Mouse is active, tap **W** for **0.5× pointer speed**, **E** for **2×**, or
 **R** for **3×**. Press the active speed's key again to return to normal;
 pressing another speed key switches directly to that speed. KeyPeek reports
 **Mouse Precision** for 0.5×, **Mouse Fast** for 2×, and **Mouse Faster** for 3×.
-Click and scroll speed stay unchanged. Release the right thumb layer key, or
-press Escape or the left thumb return-to-Base key, to clear every speed mode.
+Click and scroll speed stay unchanged. Releasing a momentary hold or exiting
+locked Mouse clears every speed mode.
 
 | Base-layer key position | Action on Mouse layer |
 | --- | --- |
 | I / J / K / L | Move pointer up / left / down / right |
 | S / D / F | Hold left / middle / right mouse button (release to let go) |
+| M | Hold left mouse button (second left-click position) |
 | U / O | Scroll down / up |
 | W | Toggle normal / 0.5× pointer speed |
 | E | Toggle normal / 2× pointer speed |
@@ -111,7 +114,7 @@ press Escape or the left thumb return-to-Base key, to clear every speed mode.
 | G | Back (mouse button 4) |
 | Left thumb top row | Command / Option / Control |
 | Left thumb bottom row | Backspace / Delete / return to Base |
-| Right thumb layer key | Hold Mouse; release returns to Base and resets speed |
+| Right thumb layer key | Hold Mouse; double-tap to lock; tap while locked to exit |
 | Escape | Return to Base |
 
 Hold movement or scrolling keys for continuous output. Other positions pass
@@ -121,8 +124,9 @@ T/G send mouse button 5/4 events; navigation depends on the app's support.
 Mouse Fast (index 4), Mouse Faster (index 5), and Mouse Precision (index 6)
 enable built-in XY scaling on the pointer listener only, retaining the same
 Mouse controls and normal acceleration. Their W/E/R bindings switch between
-modes without combining multipliers. The right thumb macro holds Mouse and
-returns to Base on release, clearing speed flags even after changing speeds.
+modes without combining multipliers. The right thumb tap-dance uses the hold
+macro for momentary Mouse and selects Mouse directly on a double-tap. A
+momentary release or any exit returns to Base and clears every speed flag.
 `CONFIG_ZMK_POINTING=y` enables ZMK's built-in mouse support; no extra module is
 needed. Build and flash both halves as above, then reconnect the left USB cable
 to refresh its mouse interface. For Bluetooth, forget/re-pair the keyboard if

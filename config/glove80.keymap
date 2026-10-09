@@ -141,6 +141,13 @@
 
     behaviors {
         ZMK_TD_LAYER(lower, LAYER_Lower)
+
+        mouse_nav_td: mouse_nav_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mouse_nav>, <&to LAYER_Mouse>;
+        };
     };
 };
 
@@ -427,7 +434,7 @@
 &kp EQUAL  &kp N1    &kp N2   &kp N3    &kp N4     &kp N5                                                                  &kp N6  &kp N7  &kp N8     &kp N9    &kp N0     &kp MINUS
 &kp ESC    &kp Q     &kp W    &kp E     &kp R      &kp T                                                                   &kp Y   &kp U   &kp I      &kp O     &kp P      &kp RIGHT_BRACKET
 &kp TAB    &kp A     &kp S    &kp D     &kp F      &kp G                                                                   &kp H   &kp J   &kp K      &kp L     &kp EQUAL  &kp APOS
-&mo 1      &kp Z     &kp X    &kp C     &kp V      &kp B   &kp LGUI   &kp LALT  &kp LCTRL   &kp DEL   &kp RGUI  &mouse_nav        &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH   &mo 1
+&mo 1      &kp Z     &kp X    &kp C     &kp V      &kp B   &kp LGUI   &kp LALT  &kp LCTRL   &kp DEL   &kp RGUI  &mouse_nav_td     &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH   &mo 1
 &kp LSHFT  &kp HOME  &kp END  &kp LEFT  &kp RIGHT          &kp SPACE  &kp RET   &magic 3 0  &kp RALT  &kp RET   &kp SPACE          &kp UP  &kp DOWN   &kp LBKT  &kp SEMI   &kp LSHFT
             >;
         };
@@ -443,7 +450,7 @@
             >;
         };
 
-        /* Hold for Mouse: IJKL pointer, S/D/F clicks, U/O scroll, W/E/R speed, T/G forward/back. */
+        /* Hold or double-tap for Mouse: IJKL pointer, S/D/F/M clicks, U/O scroll, W/E/R speed, T/G forward/back. */
         layer_Mouse {
             display-name = "Mouse";
             bindings = <
@@ -451,7 +458,7 @@
 &trans  &trans          &trans          &trans           &trans  &trans                                                        &trans  &trans  &trans          &trans  &trans  &trans
 &to LAYER_Base  &trans  &mouse_speed_half  &mouse_speed_2x  &mouse_speed_3x  &mkp MB5                                            &trans  &msc SCRL_DOWN  &mmv MOVE_UP  &msc SCRL_UP  &trans  &trans
 &trans  &trans          &mkp LCLK       &mkp MCLK        &mkp RCLK  &mkp MB4                                                    &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
-&trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &to LAYER_Base  &trans  &mkp LCLK  &trans  &trans  &trans  &trans
 &trans  &trans          &trans          &trans           &trans         &kp BSPC  &kp DEL  &to LAYER_Base  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans
             >;
         };
