@@ -77,7 +77,7 @@ are ignored by Git. `build.bat` provides the equivalent Windows build.
 4. Open [KeyPeek](https://github.com/srwi/keypeek/releases), select the Glove80,
    and hold Magic while pressing F2 if it asks to unlock the keyboard.
 5. Check ordinary typing from both halves and verify the overlay changes when
-   holding Lower or Magic, or tapping the right thumb mouse-layer key.
+   holding Lower or Magic, or holding the right thumb mouse-layer key.
 
 Test USB first. Adding Raw HID changes Bluetooth services, so Bluetooth may
 need re-pairing. Studio access locks again after inactivity or disconnect;
@@ -87,39 +87,42 @@ keymap changes.
 
 ### Mouse and scrolling layer
 
-The third layer (ZMK index 2) is named **Mouse**. Tap the existing right thumb
-layer key to toggle it on, then tap the same key again to toggle it off. Press
-Escape while Mouse is active to return to the base layer immediately.
+The third layer (ZMK index 2) is named **Mouse**. Hold the existing right thumb
+layer key to activate it; release the key to return to Base and clear all speed
+modes. Each new hold starts at normal pointer speed. Escape and the left thumb
+return-to-Base key can also exit Mouse immediately.
 
-Tap **E** for **2× pointer speed** or **R** for **3× pointer speed**. Press the
-active speed's key again to return to normal; pressing the other key switches
-directly to that speed. KeyPeek reports **Mouse Fast** for 2× and **Mouse Faster**
-for 3×.
-Click and scroll speed stay unchanged. Exiting Mouse using the right thumb
-layer key, Escape, or the left thumb return-to-Base key clears both speed modes,
-so entering Mouse again starts at normal speed.
+While holding Mouse, tap **W** for **0.5× pointer speed**, **E** for **2×**, or
+**R** for **3×**. Press the active speed's key again to return to normal;
+pressing another speed key switches directly to that speed. KeyPeek reports
+**Mouse Precision** for 0.5×, **Mouse Fast** for 2×, and **Mouse Faster** for 3×.
+Click and scroll speed stay unchanged. Release the right thumb layer key, or
+press Escape or the left thumb return-to-Base key, to clear every speed mode.
 
 | Base-layer key position | Action on Mouse layer |
 | --- | --- |
 | I / J / K / L | Move pointer up / left / down / right |
 | S / D / F | Hold left / middle / right mouse button (release to let go) |
 | U / O | Scroll down / up |
+| W | Toggle normal / 0.5× pointer speed |
 | E | Toggle normal / 2× pointer speed |
 | R | Toggle normal / 3× pointer speed |
 | T | Forward (mouse button 5) |
 | G | Back (mouse button 4) |
 | Left thumb top row | Command / Option / Control |
 | Left thumb bottom row | Backspace / Delete / return to Base |
-| Right thumb layer key | Toggle Mouse off |
+| Right thumb layer key | Hold Mouse; release returns to Base and resets speed |
 | Escape | Return to Base |
 
 Hold movement or scrolling keys for continuous output. Other positions pass
 through to the underlying layer, including modifiers for modified clicks.
 Horizontal scrolling has no bindings. The left thumb cluster matches Lower.
 T/G send mouse button 5/4 events; navigation depends on the app's support.
-Mouse Fast (index 4) and Mouse Faster (index 5) enable built-in XY scaling on the
-pointer listener only, retaining the same Mouse controls and normal acceleration.
-Their E/R bindings switch between the two modes without combining multipliers.
+Mouse Fast (index 4), Mouse Faster (index 5), and Mouse Precision (index 6)
+enable built-in XY scaling on the pointer listener only, retaining the same
+Mouse controls and normal acceleration. Their W/E/R bindings switch between
+modes without combining multipliers. The right thumb macro holds Mouse and
+returns to Base on release, clearing speed flags even after changing speeds.
 `CONFIG_ZMK_POINTING=y` enables ZMK's built-in mouse support; no extra module is
 needed. Build and flash both halves as above, then reconnect the left USB cable
 to refresh its mouse interface. For Bluetooth, forget/re-pair the keyboard if
