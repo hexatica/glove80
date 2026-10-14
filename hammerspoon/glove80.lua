@@ -1,4 +1,4 @@
--- Mouse/nav F1-F5 sends Control + Option + Command + Shift + F1-F5.
+-- Mouse/nav number keys 1-5 send Control + Option + Command + Shift + F1-F5.
 -- These bundle IDs match the apps installed on this Mac, including Codex
 -- packaged as ChatGPT.app. App assignments can change without reflashing ZMK.
 local apps = {

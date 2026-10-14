@@ -103,7 +103,7 @@ locked Mouse clears every speed mode.
 
 | Base-layer key position | Action on Mouse layer |
 | --- | --- |
-| F1 / F2 / F3 / F4 / F5 | Teams / Sequel Ace / PhpStorm / Firefox / Codex (Hammerspoon) |
+| 1 / 2 / 3 / 4 / 5 | Teams / Sequel Ace / PhpStorm / Firefox / Codex (Hammerspoon) |
 | Home / End | Control + Up / Down |
 | Left / Right (left-hand bottom row) | Control + Left / Right |
 | I / J / K / L | Move pointer up / left / down / right |
@@ -140,16 +140,18 @@ Settings** to load this newly compiled keymap; this replaces those saved edits.
 
 ### macOS app shortcuts with Hammerspoon
 
-On Mouse/nav, the five left function keys send **Control + Option + Command +
-Shift + F1–F5**. The base layer still sends ordinary function keys. The bindings
+On Mouse/nav, number keys **1–5** send **Control + Option + Command + Shift +
+F1–F5**. The function row passes through to the underlying layer. The bindings
 also pass through all pointer-speed modes. Home, End and the left-hand arrow
 keys send Control + Up, Down, Left and Right directly; Hammerspoon is not needed
 for those four bindings. Their actions follow macOS Keyboard Shortcuts settings.
 
-`hammerspoon/glove80.lua` maps F1 to Teams, F2 to Sequel Ace, F3 to PhpStorm,
-F4 to Firefox and F5 to Codex. It launches or activates the selected app, waits
-for its focused window to settle, then places the pointer at its center without
-clicking. Another app shortcut cancels a pending pointer move. It stops waiting
+`hammerspoon/glove80.lua` maps those signals to Teams, Sequel Ace, PhpStorm,
+Firefox and Codex respectively. Existing Hammerspoon installations need no
+configuration change for the move to the number row. It launches or activates
+the selected app, waits for its focused window to settle, then places the
+pointer at its center without clicking. Another app shortcut cancels a pending
+pointer move. It stops waiting
 after eight seconds if no target window gains focus. With multiple windows,
 macOS chooses the window to activate. The bundle IDs match this Mac's installed
 apps; Codex is packaged in `ChatGPT.app` with bundle ID `com.openai.codex`.
@@ -179,7 +181,7 @@ app to its Space. Enable Hammerspoon's launch-on-login preference if desired.
 
 Before flashing, test the Mac side by manually pressing all four modifiers
 with F1–F5 on the base layer. After building and flashing both halves,
-**Mouse/nav + F1–F5** sends the same shortcuts with a single function key. Test switching
+**Mouse/nav + 1–5** sends the same shortcuts with a single number key. Test switching
 between apps on different Spaces and verify the pointer lands inside the window.
 
 ### Rollback

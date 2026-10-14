@@ -450,12 +450,12 @@
             >;
         };
 
-        /* Mouse/nav: F1-F5 app shortcuts, IJKL pointer, S/D/F/M clicks, U/O scroll, W/E/R speed. */
+        /* Mouse/nav: 1-5 app shortcuts, IJKL pointer, S/D/F/M clicks, U/O scroll, W/E/R speed. */
         layer_Mouse {
             display-name = "Mouse";
             bindings = <
-&kp LC(LA(LG(LS(F1))))  &kp LC(LA(LG(LS(F2))))  &kp LC(LA(LG(LS(F3))))  &kp LC(LA(LG(LS(F4))))  &kp LC(LA(LG(LS(F5))))     &trans  &trans  &trans  &trans  &trans
-&trans  &trans          &trans          &trans           &trans  &trans                                                        &trans  &trans  &trans          &trans  &trans  &trans
+&trans  &trans          &trans          &trans           &trans                                                                            &trans          &trans          &trans           &trans  &trans
+&trans  &kp LC(LA(LG(LS(F1))))  &kp LC(LA(LG(LS(F2))))  &kp LC(LA(LG(LS(F3))))  &kp LC(LA(LG(LS(F4))))  &kp LC(LA(LG(LS(F5))))  &trans  &trans  &trans  &trans  &trans  &trans
 &to LAYER_Base  &trans  &mouse_speed_half  &mouse_speed_2x  &mouse_speed_3x  &mkp MB5                                            &trans  &msc SCRL_DOWN  &mmv MOVE_UP  &msc SCRL_UP  &trans  &trans
 &trans  &trans          &mkp LCLK       &mkp MCLK        &mkp RCLK  &mkp MB4                                                    &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
 &trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &to LAYER_Base  &trans  &mkp LCLK  &trans  &trans  &trans  &trans
