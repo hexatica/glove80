@@ -103,6 +103,9 @@ locked Mouse clears every speed mode.
 
 | Base-layer key position | Action on Mouse layer |
 | --- | --- |
+| F1 / F2 / F3 / F4 / F5 | Teams / Sequel Ace / PhpStorm / Firefox / Codex (Hammerspoon) |
+| Home / End | Control + Up / Down |
+| Left / Right (left-hand bottom row) | Control + Left / Right |
 | I / J / K / L | Move pointer up / left / down / right |
 | S / D / F | Hold left / middle / right mouse button (release to let go) |
 | M | Hold left mouse button (second left-click position) |
@@ -134,6 +137,50 @@ the host has cached the old HID descriptor. See [ZMK's mouse documentation](http
 
 If bindings were saved through KeyPeek or Studio, use Studio's **Restore Stock
 Settings** to load this newly compiled keymap; this replaces those saved edits.
+
+### macOS app shortcuts with Hammerspoon
+
+On Mouse/nav, the five left function keys send **Control + Option + Command +
+Shift + F1–F5**. The base layer still sends ordinary function keys. The bindings
+also pass through all pointer-speed modes. Home, End and the left-hand arrow
+keys send Control + Up, Down, Left and Right directly; Hammerspoon is not needed
+for those four bindings. Their actions follow macOS Keyboard Shortcuts settings.
+
+`hammerspoon/glove80.lua` maps F1 to Teams, F2 to Sequel Ace, F3 to PhpStorm,
+F4 to Firefox and F5 to Codex. It launches or activates the selected app, waits
+for its focused window to settle, then places the pointer at its center without
+clicking. Another app shortcut cancels a pending pointer move. It stops waiting
+after eight seconds if no target window gains focus. With multiple windows,
+macOS chooses the window to activate. The bundle IDs match this Mac's installed
+apps; Codex is packaged in `ChatGPT.app` with bundle ID `com.openai.codex`.
+
+Install from this repository's root in Terminal (preserves existing init.lua
+contents and backs up an existing Glove80 module before replacing it):
+
+```sh
+mkdir -p "$HOME/.hammerspoon"
+if [ -f "$HOME/.hammerspoon/glove80.lua" ]; then
+  cp -p "$HOME/.hammerspoon/glove80.lua" "$HOME/.hammerspoon/glove80.lua.backup-$(date +%Y%m%d-%H%M%S)"
+fi
+cp hammerspoon/glove80.lua "$HOME/.hammerspoon/glove80.lua"
+touch "$HOME/.hammerspoon/init.lua"
+grep -qxF 'require("glove80")' "$HOME/.hammerspoon/init.lua" || printf '\nrequire("glove80")\n' >> "$HOME/.hammerspoon/init.lua"
+```
+
+Grant Hammerspoon Accessibility permission in System Settings, then **quit and
+reopen Hammerspoon**. A Mac restart is normally unnecessary. For subsequent Lua
+edits, copy the module again and choose **Reload Config** in Hammerspoon's menu.
+The Console command `hs.accessibilityState()` should return `true`.
+
+In **System Settings → Desktop & Dock → Mission Control**, enable **When
+switching to an application, switch to a Space with open windows for the
+application**. Hammerspoon uses normal app activation to follow the selected
+app to its Space. Enable Hammerspoon's launch-on-login preference if desired.
+
+Before flashing, test the Mac side by manually pressing all four modifiers
+with F1–F5 on the base layer. After building and flashing both halves,
+**Mouse/nav + F1–F5** sends the same shortcuts with a single function key. Test switching
+between apps on different Spaces and verify the pointer lands inside the window.
 
 ### Rollback
 
